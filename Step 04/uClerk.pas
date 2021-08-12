@@ -2,11 +2,9 @@
 
 interface
 
-uses
-  System.Classes;
 
 type
-  TClerk = class(TComponent)
+  TClerk = class(TObject)
   private                       // at first the fields
     { private declarations }
     fName : String;             // don't forget the leading "f"!
@@ -21,13 +19,32 @@ type
     property Name : String  read getName write setName;
     property ID   : Integer read getID   write setID;
 
+
+    constructor Create( AName : String = 'Harold Maier';
+      AID : Integer = 24576);
+
+    destructor Destroy;
   end;
 
 implementation
 
-  // now Implement the Getter- and Setter-Methods:
 
 
+constructor TClerk.Create( AName : String = 'Harold Maier';
+  AID : Integer = 24576);
+begin
+  // important: Call the inhereted Constructor from the Parent-Class:
+  inherited Create; // for description see later
+  // use the Setter to set the fields
+  setName( AName);
+  setID( AID);
+end;
+
+destructor TClerk.Destroy;
+begin
+  // if anything is to be freed at the end...
+  // in this example - there are only simple data types ;)
+end;
 
 
 
