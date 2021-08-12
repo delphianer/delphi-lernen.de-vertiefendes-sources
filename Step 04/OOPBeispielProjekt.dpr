@@ -3,7 +3,8 @@
 uses
   Vcl.Forms,
   MainUnit in 'MainUnit.pas' {Form1},
-  uClerk in 'uClerk.pas';
+  uClerk in 'uClerk.pas',
+  uDepartmentChief in 'uDepartmentChief.pas';
 
 {$R *.res}
 

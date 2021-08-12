@@ -23,7 +23,8 @@ type
     constructor Create( AName : String = 'Harold Maier';
       AID : Integer = 24576);
 
-    destructor Destroy;
+    destructor Destroy; override; // override inherited Create-Method
+                                  // from TObject
   end;
 
 implementation
@@ -42,6 +43,8 @@ end;
 
 destructor TClerk.Destroy;
 begin
+  // important: Call the inhereted Destructor from the Parent-Class:
+  inherited Destroy;
   // if anything is to be freed at the end...
   // in this example - there are only simple data types ;)
 end;
@@ -66,20 +69,17 @@ begin
 end;
 
 
-// uncommented
+
 
 function TClerk.getID:Integer;
 begin
-  result := ID shl 1024;
+  result := fID;
 end;
 
 
 procedure TClerk.setID(AID :Integer);
 begin
-  if AID > 1024 then
-    fID := AID shr 1024
-  else
-    fID := AID;
+  fID := AID;
 end;
 
 
