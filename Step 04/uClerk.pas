@@ -19,6 +19,7 @@ type
     property Name : String  read getName write setName;
     property ID   : Integer read getID   write setID;
 
+    function getRankTitle:String;
 
     constructor Create( AName : String = 'Harold Maier';
       AID : Integer = 24576);
@@ -56,6 +57,14 @@ begin
   // here something can be done with fName before it will be returned
   result := fName;
 end;
+
+
+
+function TClerk.getRankTitle: String;
+begin
+  result := 'Clerk';
+end;
+
 
 
 procedure TClerk.setName(AName :String);
